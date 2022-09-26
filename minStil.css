@@ -1,0 +1,72 @@
+svg:hover #rødRect {
+  transform: translateX(50%);
+}
+
+svg:hover #grønnRect {
+  transform: translateX(-50%);
+}
+
+svg:hover .sol {
+  transform: translateY(100%);
+}
+
+svg {
+  cursor: pointer;
+}
+
+#grønnRect,
+#rødRect,
+.sol {
+  transition: all 2.5s;
+}
+
+.center {
+  margin: auto;
+  width: 29%;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  font-family: helvetica;
+  border-radius: 7px;
+  background-color: rgba(62, 180, 137, 0.5);
+  margin-left: 450px;
+  margin-right: 450px;
+}
+
+#dokumentasjon {
+  border-radius: 15px;
+  padding: 10px;
+  background-color: rgba(62, 180, 137, 0.3);
+}
+
+button {
+  background-color: rgba(62, 180, 137, 0.6);
+  border-radius: 15px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+p {
+  font-family: raleway;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+html {
+  min-height: 300%;
+  min-width: 100%;
+  background-image: linear-gradient(#edfaef, #116144);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

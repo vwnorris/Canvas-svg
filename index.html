@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head> 
+        <link rel="stylesheet" href="minStil.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="minJQuery.js"></script>
+        <title>Mitt abstrakte bilde</title>
+    </head> 
+    
+    <body> 
+        <div class="heading">
+            <h1>MITT ABSTRAKTE BILDE</h1>
+            <br>
+        
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <svg width="200" height="200">
+                <rect width="200" height="200" fill="blue" />
+                <polyline points="0,200 50,150 100,200 150,150 200,200"
+                style="fill:none;stroke:rgb(115, 222, 244);stroke-width:4" />
+                <polyline points="0,150 50,200 100,150 150,200 200,150"
+                style="fill:none;stroke:rgb(115, 222, 244);stroke-width:4" />
+                <g id="rødRect">
+                    <rect width="100" height="150" stroke="black" stroke-width="4" fill="red" />
+                </g>
+                <g id="grønnRect">
+                    <rect x="100" width="100" height="150" stroke="black" stroke-width="4" fill="green" />
+                </g>
+                <polygon class="star" points="50,0 5,145 95,75 5,75 95,145"
+                    style="fill:grey;stroke:lime;stroke-width:4;fill-rule:nonzero;" />
+                <polygon class="star" points="150,0 105,145 195,75 105,75 195,145"
+                    style="fill:grey;stroke:lime;stroke-width:4;fill-rule:nonzero;" />
+                <g class="sol">
+                    <circle cx="100" cy="0" r="48" fill="yellow" stroke="lime" stroke-width="4"/>
+                </g>
+            </svg>
+            <canvas id="mittCanvas" width="200" height="200" onmouseenter="animerCanvas()" onmouseout="resetCanvas()" onclick="changeSun()"></canvas>
+            <script src="mittScript.js"></script>
+        </div>
+
+        <div class="container">
+            <p id="pSvg" style="font-size:100%">Hei, jeg er en svg!</p> 
+            <p id="pCanvas" style="font-size:100%">Hei, jeg er en canvas! </p>
+        </div>
+
+        <div class="container">
+            <p>Hei! Jeg er kunstneren Santaline, og har laget disse to nærmest identiske verkene - De kalles "Julaften i linjeland" og er inspirert av hvordan jeg pleier å pynte til jul! I mitt lille linjeland er alt basert på linjer, og selv solen har en sterk grønn linje rundt. I juletider er solen også rød!</p> 
+        </div>
+        <div class="container">
+            <p>Klikk her for å lese mer om bakgrunnen for kunstverkene</p>
+        </div>
+
+        <div class="container">
+            <button class="documentationButton">Dokumentasjon</button> 
+        </div>
+
+        <div class="container">
+            <p id="dokumentasjon">Hei! Her er litt info om <em>meg</em>:
+                <br><br>Hvis du klikker på verket, får du se hvilken teknologi som er brukt til å lage det, og hvis du holder musepekeren over bildene får du se en liten
+                animasjon. 
+                <br><br>CSS-grid og Flexbox-layout
+                <br>Jeg har valgt å bruke flex-container til å ha bedre kontroll over layouten av siden min. Dette var spesielt nyttig til å plassere de
+                 to bildene ved siden av hverandre. Flex-containeren gjør det enkelt å midtstille bildene, men også ha en "gap" mellom de som man kan bestemme selv. 
+                 Jeg valgte flexbox over grid fordi flexbox lar deg lage en todimensjonal boks å ha tingene i, som ville passe bedre til slik jeg ønsket å utforme siden. 
+                 Om jeg skulle hatt flere bilder, som fire, ville jeg heller brukt grid for å få de fire plassert likt i forhold til hverandre. 
+                 Flexbox dekket behovene mine, og var enklere å jobbe med i dette prosjetktet. 
+                <br><br>HTML canvas og SVG i HTML
+                <br>For å lage et svg-bilde i HTML leste jeg først en del om det på w3school, før jeg startet designet. Jeg ønsket å gå for noe veldig abstrakt,
+                 som samtidig ville gi en følelse av noe kjent, uten å se ut som noe man har sett før. Jeg skrev hele svg-en rett inn i index.html. For å animere
+                 svg-en brukte jeg css, og funksjoner som svg:hover. Jeg leste meg også opp på canvas hovedsakelig på w3school, før jeg lagde det samme designet 
+                 som svg-en på denne måten. Jeg har også brukt jQuery til å ha en show- og hidefunksjon som skjuler stjernene i SVG-en når du klikker på en av stjernene og 
+                 viser de igjen om du klikker på solen. Bildene er identiske, men animasjonene er litt ulike. Canvasanimasjonen flyter ikke animert tilbake når du tar musepekeren
+                 ut av ruten, og klikking på stjerner og sol er kun forbeholdt svg-en. På canvasen endrer solens farge til rød om man klikker på canvasen, og tilbake om man klikker igjen.
+                 Jeg skrev koden for canvasen i en annen fil, mitt Script.js, for å holde koden mer oversiktlig.
+                <br><br>jQuery.
+                <br>jQuery er et JavaScript bibliotek som inneholder enkle løsninger for handlinger som event-handling, og er svært nyttig til prosjetkter som dette. 
+                Jeg har brukt biblioteket jQuery til å gjøre begge bildene til klikkbare elementer, som gir ved en allert forteller deg om bildet er svg 
+                eller canvas. Jeg har også brukt toggle - og load funksjonene fra jQuery til å enkelt lese inn denne tekstfilen og vise/skjule den ved knappen
+                over. Det viste seg desverre at det var problemer med å lese fra lokale tekstfiler i flere nettlesere, og jeg måtte derfor kommentere ut denne funksjonen
+                og heller skrive teksten direkte i index.html. jQuery koden ligger i en egen js-fil, ved navn minJQuery.js. 
+                <br><br>Cross-browser testing. 
+                <br>Jeg har brukt en utvidelse til VScode kalt Live Server til å kjøre siden på en live server. Denne serveren har fungert korrekt i både Google Chrome 
+                og i Safari. Ved å sjekke mer oppdaget jeg at det var et problem med load - funksjonen fra jQuery da jeg prøvde å heller åpne filen lokalt i nettleserene. 
+                Dette var en såkalt CORS-error, og oppsto fordi nettleseren stoppen siden fra å åpne en lokal fil på siden. For å unngå dette, måtte jeg droppe load-funksjonen
+                og heller skrive dokumentasjonen direkte i html-filen. Hadde siden vært ment for å kjøres på en server hadde dette problemet vært unngått, men siden den skal 
+                testes lokalt av medstudenter valgte jeg å legge teksten inn i index.html. Hvis de som leser dette kjører på en server kan de prøve å fjerne kommentaren i minJQuery.js for å teste. 
+                Dette problemet er kjent for mozilla, og står beskrevet under "loading a local file" på denne linken: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp
+                Til slutt er siden testet velfungerende i Google Chrome, Safari og Firefox. 
+                <br><br>Mine viktigste informasjonskilder
+                <br>Nettsiden w3school har vært utrolig nyttig for å bli bedre kjent med ny teknologi. Når jeg har støtt på problemer har StackOverflow vært 
+                behjelpelig, og spesielt til animeringen av bildene har youtube vært utrolig nyttig. Jeg har også fått mye ut av å spørre medstudenter når jeg har stått fast, da 
+                det er lettere å se småfeil i andres kode, og det hjelper også ofte å få litt veiledning og nye idéer. En annen god kilde jeg har brukt, spesielt når jeg har hatt 
+                mer tekniske problemer, er https://developer.mozilla.org/. 
+        </div>
+    </body> 
+</html>
